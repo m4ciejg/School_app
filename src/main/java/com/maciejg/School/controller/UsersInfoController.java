@@ -22,7 +22,7 @@ import com.maciejg.School.repository.StudentsTeachersRepository;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api")
+@RequestMapping("/secretary")
 public class UsersInfoController {
 
 	@Autowired
@@ -60,6 +60,7 @@ public class UsersInfoController {
 	studentsTeachersEntity.setPesel(entity.getPesel());
 	studentsTeachersEntity.setPhoneNumber(entity.getPhoneNumber());
 	studentsTeachersEntity.setAddress(entity.getAddress());
+	studentsTeachersEntity.setEmail(entity.getEmail());
 	
 	StudentsTeachersEntity updated = studentsTeachersRepository.save(studentsTeachersEntity);
 	

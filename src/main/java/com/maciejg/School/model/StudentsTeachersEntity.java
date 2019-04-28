@@ -1,11 +1,13 @@
 package com.maciejg.School.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+
+
 
 @Entity
 @Table(name="usersinfo")
@@ -15,23 +17,30 @@ public class StudentsTeachersEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
+	@Column(name = "name")
 	private String name;
 	
-	@NotBlank
+	@Column(name = "surname")
 	private String surname;
 	
-	@NotBlank
+	
+	@Column(name = "occupation")
 	private String occupation;
 	
-	@NotBlank
-	private int pesel;
 	
-	@NotBlank
-	private int phoneNumber;
+	@Column(name = "pesel")
+	private String pesel;
 	
-	@NotBlank
+	
+	@Column(name = "phone_number")
+	private String phoneNumber;
+	
+	
+	@Column(name = "address")
 	private String address;
+	
+	@Column(name = "email")
+	private String email;
 
 	public Long getId() {
 		return id;
@@ -65,19 +74,19 @@ public class StudentsTeachersEntity {
 		this.occupation = occupation;
 	}
 
-	public int getPesel() {
+	public String getPesel() {
 		return pesel;
 	}
 
-	public void setPesel(int pesel) {
+	public void setPesel(String pesel) {
 		this.pesel = pesel;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -89,6 +98,13 @@ public class StudentsTeachersEntity {
 		this.address = address;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	
 }
