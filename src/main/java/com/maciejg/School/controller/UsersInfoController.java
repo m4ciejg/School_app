@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.maciejg.School.exception.ResourceNotFoundException;
 import com.maciejg.School.model.StudentsTeachersEntity;
+import com.maciejg.School.model.User;
 import com.maciejg.School.repository.StudentsTeachersRepository;
 
 @RestController
@@ -32,6 +33,13 @@ public class UsersInfoController {
 	public List<StudentsTeachersEntity> getAll(){
 		
 		return studentsTeachersRepository.findAll();
+	}
+	
+	//Mapping for users authentication
+	@RequestMapping({"/validateLogin"})
+	public User validateLogin() {
+		
+		return new User("User succesfully authenticated");
 	}
 	
 	@GetMapping("/users/{id}")
@@ -61,6 +69,7 @@ public class UsersInfoController {
 	studentsTeachersEntity.setPhoneNumber(entity.getPhoneNumber());
 	studentsTeachersEntity.setAddress(entity.getAddress());
 	studentsTeachersEntity.setEmail(entity.getEmail());
+	studentsTeachersEntity.setUsername(entity.getUsername());
 	
 	StudentsTeachersEntity updated = studentsTeachersRepository.save(studentsTeachersEntity);
 	
