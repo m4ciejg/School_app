@@ -1,5 +1,6 @@
 package com.maciejg.School.security;
 
+import org.aspectj.weaver.ast.And;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -33,9 +34,11 @@ public class RestSecurity extends WebSecurityConfigurerAdapter {
 			.and()
 				.withUser("dyrektor")
 				.password("{noop}dyrektor")
-				.roles("ADMIN");
+				.roles("ADMIN")
+			.and()
+				.withUser("uczen")
+				.password("{noop}uczen")
+				.roles("USER");
 		
 	}
-
-	
 }
